@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+ {% extends "bootstrap/base.html" %}
+   {% block title %}This is an example page{% endblock %}
+{% block content %}
+<table class="table table-bordered">
+        <tr>
+            <td>student.name</th>
+            <th>student.score</th>
+            <th>student.grade_id</th>
+        </tr>
+
+    {% for student in students %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.score }}</td>
+            <td>{{ student.grade.name }}</td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+
+
+
+
+{% endblock %}
+

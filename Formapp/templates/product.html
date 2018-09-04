@@ -1,0 +1,11 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% if name  %}
+<h3>你选购了<span style="color: aqua">{{ name }}</span></h3>
+{% else %}
+<h3>请输入你的产品</h3>
+
+{% endif %}
+
+{{ wtf.quick_form(productForm,action="/") }}
+{{ get_flashed_messages() }}

@@ -1,0 +1,6 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{{ wtf.quick_form(logform,action="/login") }}
+
+{{ get_flashed_messages()[0] }}

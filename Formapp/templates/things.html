@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax异步请求数据</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script type="text/javascript">
+
+        function getFruit() {
+            $.get(url = "/fruit",
+                function (data) {
+                    var html = "";
+                    for (var index in data.name) {
+                        html += "<li>" +data.name[index] + "</li><br>";
+                    }
+                    $("#fruit").html(html);
+                },
+                dataType= "json")
+        }
+        function getSport() {
+
+            $.get(url = "/sport",
+                function (data) {
+                    var html = "";
+                    for (var index in data.name) {
+                        html += "<li>" + data.name[index] + "</li><br>";
+                    }
+                    $("#sport").html(html);
+                },
+                dataType = "json")
+        }
+    </script>
+</head>
+<body>
+
+    <input type="button" value="fruit"  onclick="getFruit()">
+    <div  id="fruit"></div>
+    <input type="button" value="sport"  onclick="getSport()">
+    <div  id="sport"></div>
+
+    <h3>图片</h3><br>
+    <img src="{{ url_for('static',filename='imgs/monkey.jpg') }}"/>
+
+    <h3>视频</h3>
+    <video  controls="controls">
+        <source src="{{ url_for('static',filename='vedio/第一课.mp4') }}">
+    </video>
+
+</body>
+</html>
